@@ -4,7 +4,7 @@
 
 1. Conocer la plataforma Qgis
 2. Identificar las diferencias entre coordendas geograficas y proyectadas
-3. Reconocer los elementos minimos que deben estar presentes en un mapa
+3. Reconocer los elementos mínimos que deben estar presentes en un mapa
 
 
 ## ¿Qué es una coordenada?
@@ -14,11 +14,11 @@ Las coordenadas como lo vimos anteriormente son números que nos indican la posi
 + Las coordenadas Geográficas
 + Las coordenadas Proyectadas
 
-La sesión anterior definímos lo que es una coordenada geográfica y como es que se interpreta en base a los múltiples formatos que presenta Google Earth Pro. En esta sesión nos enfocaremos en la definición de las coordenadas Proyectadas principalmente pero abordaremos conceptos que también se aplican a las coordenadas geográficas. A continuacion, analizaremos algunos conceptos previos que permitirán dar más detalle y un contexto a lo que es una coordenada. 
+La sesión anterior definímos lo que es una coordenada geográfica y como es que se interpreta en base a los múltiples formatos que presenta Google Earth Pro. En esta sesión nos enfocaremos en la definición de las coordenadas Proyectadas principalmente pero abordaremos conceptos que también se aplican a las coordenadas geográficas. Analizaremos algunos conceptos previos que permitirán dar más detalle y un contexto a lo que es una coordenada. 
 
 ## ¿Cuál es la verdadera forma de la tierra?
 
-Todos alguna vez en nuestra vida nos hemos hecho esa pregunta. Es bien conocido que la forma de la Tierra es esférica y ello se determinó hace mucho tiempo atrás, esto fue propuesto en la antigua Grecia aproximadamente en el año 240 A.C y fue Eratóstenes, un matemático, quien con un simple experimento (utilizando palos y sombras) pudo medir la circunferencia con una muy buena precisión. Pero cuando hablamos de una esfera el contexto pude ser un poco ambiguo. 
+Todos alguna vez en nuestra vida nos hemos hecho esa pregunta. Se conoce que la forma de la Tierra es esférica y ello se determinó hace mucho tiempo atrás, esto fue propuesto en la antigua Grecia aproximadamente en el año 240 A.C y fue Eratóstenes, un matemático, quien con un simple experimento (utilizando palos y sombras) pudo medir la circunferencia con una muy buena precisión. Pero cuando hablamos de una esfera el contexto pude ser un poco ambiguo. 
 Existen múltiples tipos de esfera, esferas perfectas, esferoides, elipsoides, etc.
 
 <p align="center">
@@ -26,12 +26,12 @@ Existen múltiples tipos de esfera, esferas perfectas, esferoides, elipsoides, e
 
 ## Generalización de la forma de la tierra
 
-La superficie de la tierra es algo muy irregular. Se tienen montañas, valles, cañones, ríos, etc. Todos estos elementos son muy difícil de modelar tomando en cuenta que en la mayoría de mapas o modelos de la tierra o se dispone únicamente de una superficie plana como una hoja o una pantalla. Es por ello que se desarrollan modelos con un mayor grado de simplificación. A esto le llamaremos generalización de los modelos de la tierra.
+La superficie de la Tierra es algo muy irregular, se tienen montañas, valles, cañones, ríos, etc. Todos estos elementos son muy difíciles de modelar tomando en cuenta que en la mayoría de mapas o modelos de la Tierra o se dispone únicamente de una superficie plana como una hoja o una pantalla. Es por ello que se desarrollan modelos con un mayor grado de simplificación. A esto le llamaremos generalización de los modelos de la Tierra.
 
 <p align="center">
   <img src="https://github.com/RealGuyab/Qgis/blob/main/Pr%C3%A1cticas/Practica_2/imagenes/nivel_generalizacion.png" alt="TIPOS ESFERAS" width=300>
 
-Como pueden observar en la imagen, conforme vamos bajando en la misma encontramos diversos modelos. Estos modelos van perdiendo detalle si tomamos en cuenta la superficie inicial de la tierra. Sin embargo, nos permiten desarrollar cálculos matemáticos más precisos y de ellos generar herramientas como las coordenadas o sistemas de posicionamiento. 
+Como pueden observar en la imagen, conforme vamos bajando encontramos diversos modelos. Estos modelos van perdiendo detalle si tomamos en cuenta la superficie inicial de la Tierra. Sin embargo, nos permiten desarrollar cálculos matemáticos más precisos y de ellos generar herramientas como las coordenadas o sistemas de posicionamiento. 
 
 Los modelos que analizaremos en este apartado serán principalmente dos:
 + Elipsoides
@@ -41,7 +41,7 @@ Esto nos permitirá entender algunos elementos adicionales como los datum o las 
 
 ## ¿Qué es un elipsoide?
 
-Todos hemos visto el modelo más comun de la tierra, en donde se muestra una esfera completamente perfecta, esta forma de representar la tierra es una representación artística que no coincide con la forma real de la tierra. Si tuvieramos que ser mas precisos sobre su forma real sin incluir todavia valles, montañas, etc. estariamos hablando de una esfera que se encuentra achatada en los polos (esfera oblata), si reducimos aún más la complejidad o nos fijamos solo en los bordes, la figura resultante es una elipse. 
+Todos hemos visto el modelo más comun de la Tierra, en donde se muestra una esfera completamente perfecta, esta forma de representar la Tierra es una representación artística que no coincide con la forma real de la Tierra. Si tuvieramos que ser mas precisos sobre su forma real sin incluir todavia valles, montañas, etc. estariamos hablando de una esfera que se encuentra achatada en los polos (esfera oblata), si reducimos aún más la complejidad o nos fijamos solo en los bordes, la figura resultante es una elipse. 
 
 <p align="center">
   <img src="https://github.com/RealGuyab/Qgis/blob/main/Pr%C3%A1cticas/Practica_2/imagenes/ESFERA_OBLATA.png" alt="ELIPSOIDE" width=600>
@@ -120,7 +120,12 @@ Debemos tener en mente que toda proyección es valida para algunos lugares pero 
 ### Proyecciones en función de las cualidades proyectivas
 
 + **Proyeccion Planar o Azimutal**: Imagine que tenemos una hoja y la colocamos sobre un balón de fútbol de manera que solo haya un punto de toque en la esfera y la hoja se mantenga plana. Si vemos desde arriba lo que se observará es un nivel alto de detalle de la tierra en el punto donde se da el toque entre ambos objetos pero que se ira deformando conforme nos alejemos a los bordes. Esto es básicamente una proyección planar. Se consigue asignando un plano de observación sobre la esfera que tenga un punto de orientación principal. Esto generará una proyección en donde el mayor nivel de detalle se encuentra en el punto y en las áreas más cercanas, deformandose conforme nos vamos alejando del punto focal.
+
+
 + **Proyección Cónica**: Se utiliza la figura de un cono para establcer la proyección. Básicamente consiste en ingresar la tierra dentro de un cono. Hay múltiples zonas de toque entre ambas formas. Esto es útil para establecer proyecciones en latitutes altas del mundo (los polos y zonas aledañas). El detalle se hace mayor conforme nos acercamos al vértice del cono y va deformandose si nos vamos acercando a su base.
+
+
+
 + **Proyección cilíndrica**: las proyecciones cilíndricas consisten en utilizar un cilindro e ingresar la esfera dentro de forma que quede suspendida en la mitad. Esta proyección es la más común y conocida. Esta guarda mucho nivel de detalle en la zona ecuatorial del mundo pero tiene deformaciones conforme nos acercamos a los polos. Es la misma proyección que podemos observar en la página [The True Size](https://thetruesize.com/). Esta proyección así mismo es la que se utiliza en el sistema UTM (Universal Transversal Mercator).
 
 <p align="center">
@@ -140,8 +145,7 @@ Así mismo, se caracteriza por que las coordendas latitud y longitud cambian a c
 
 Este sistema de coordenadas trae mucho detalle a la zona de trabajo seleccionada pero se deforma el resto del mundo por lo que antes de configurar o cambiar las coordenadas de un área geográfica seria bueno primero analizar en que zona se encuentra ubicada.
 
-<p align="center">
-  <img src = "https://github.com/user-attachments/assets/55460673-0dd2-4c0f-8392-7f7a1292ec56" alt="UTM" width=1200>
+
 
 ## ¿Qué es escala de trabajo?
 
@@ -155,6 +159,7 @@ De este ejemplo se resaltan dos cosas.
 
 En la imagen pueden ver la misma zona pero en diferentes escalas y al igual que en nuestro ejemplo mientras más grande se hace el número podemos observar cada vez más detalles de la ciudad. Este elemento hay que tenerlo siempre presente por que nos permitirá establecer un tamaño tanto de impresión como de detalle del mapa que querramos crear. 
 Asi pues para representar una casa no se usaran escalas muy grandes y para representar una ciudad no se usaran escalas pequeñas.
+
 
 # Introducción al GIS con Qgis 
 
@@ -178,7 +183,7 @@ La interfaz de Qgis se analiza en base a paneles que pueden ubicarse a los costa
 + Navegador: El navegar es un elemtno que nos permite visualizar las carpetas que creamos. Es importante mantener el orden asi que procuren crear una carpeta por cara proyecto que tengan activo, asi mismo ordenar todos sus archivos para no tener ningun inconveniente luego.
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/0dc22040-6b64-4513-9db1-acb0e41adc88" alt="ELIPSOIDE" width=1000>
+  <img src="https://github.com/user-attachments/assets/a90e69d4-df6a-45ad-8420-260661746961" alt="ELIPSOIDE" width=1000>
 
 ____________________________________________________________________________________________________________________________________________
 
